@@ -1,0 +1,58 @@
+server:
+  port: 8001
+
+  #context-path: /study 配置根目录
+
+#数据库信息配置
+
+spring:
+
+  application:
+    name: microservicecloud-dept  #对外暴露的微服务名称
+
+  datasource:
+# 这里改数据库名！！！！！！！！！！！！！！！！！
+    url: jdbc:mysql://localhost:3306/cloudDB01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
+
+    username: root
+
+    password: xieyutao
+
+    driver-class-name: com.mysql.jdbc.Driver
+
+    type: com.alibaba.druid.pool.DruidDataSource
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+#Mybatis配置
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  type-aliases-package: com.atguigu.springcloud.entities
+
+
+#客户端注册进eureka服务列表
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+  instance:
+
+    #服务实例名称修改!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    instance-id: springcloud-dept8001
+
+    #访问路径显示IP地址!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+info:
+     app.name: atguigu-microservicecloud
+
+     company.name: www.atguigu.com
+
+     build.artifactId: ${project.artifactId}$
+
+     build.version: ${project.version}

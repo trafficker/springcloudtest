@@ -1,0 +1,7 @@
+
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true"></setting>>
+<!--  此处聊胜于无，  随便 开启二级缓存-->
+    </settings>
+</configuration>
